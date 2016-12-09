@@ -21,7 +21,17 @@ class User < ApplicationRecord
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  def self.user_mentor_slots
+    all = User.select {|ment| ment.mentor_sessions.length > 0 }
+    user_hash = {}
+    all.each do |user|
+      user_hash[user.full_name] = user.mentor_sessions.order("session_datetime")
+    end
+    user_hash
+  end
 end
+
+
 
 
 

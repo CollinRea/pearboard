@@ -1,0 +1,19 @@
+
+
+<table>
+    <tr>
+      <th>mentor</th>
+    <% @slots_sat.each do |slot| %>
+      <th><%= slot.start %></th>
+    <% end %>
+    </tr>
+    <% @logged_mentors.each do |mentor| %>
+      <tr>
+        <td><%= mentor %></td>
+      <% @sessions[mentor].each do |sesh| %>
+        <td><%= sesh.student.full_name%></td>
+      <% end %>
+      </tr>
+    <% end %>  
+
+</table>
