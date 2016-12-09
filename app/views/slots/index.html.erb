@@ -16,7 +16,12 @@
     <tr>
     <th><%= current_user.full_name %></th>
   <% @slots_sat.each do |slot| %>
-    <th><%= slot_checker(@sat_sessions, current_user, slot) %></th>
+    <% value = slot_checker(@sat_sessions, current_user, slot) %>
+    <% if logged_in? %>
+      <td><%= render partial: 'slots/signup_form', locals: { slot: slot }%></td>
+    <% else %>
+      <td><%= value %></td>
+    <% end %>
   <% end %>
     </tr> 
 </table>

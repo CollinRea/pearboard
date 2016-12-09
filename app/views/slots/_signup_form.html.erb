@@ -1,0 +1,5 @@
+
+<%= form_tag('/slots') do %>
+  <%= hidden_field_tag(:slot_id, slot.id) %>
+  <%= submit_tag("open")%>
+<% end %>
