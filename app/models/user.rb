@@ -34,7 +34,6 @@ class User < ApplicationRecord
     mentor_session_hash
   end
 
-
   def active_sessions(all_sessions)
     sessions = []
     all_sessions.each do |sesh|
