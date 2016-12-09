@@ -28,12 +28,12 @@ class User < ApplicationRecord
     all_possible_mentors.each do |user|
       user_days_sessions = days_sessions.where(mentor_id: user.id)
       if user_days_sessions.length > 0
-        mentor_session_hash[user.full_name] = user_days_sessions
+        mentor_session_hash[user] = user_days_sessions
       end
     end
     mentor_session_hash
   end
-  
+
 end
 
 
