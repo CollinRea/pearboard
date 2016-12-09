@@ -5,4 +5,8 @@ class Session < ApplicationRecord
 	has_many :feedbacks
 
 	validates :mentor_id, :slot_id, :session_datetime, { presence: true }
+
+  def self.slots(day)
+    joins(:slot).merge(Slot.filter(day))
+  end
 end

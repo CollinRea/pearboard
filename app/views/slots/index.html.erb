@@ -7,10 +7,10 @@
       <th><%= slot.start %></th>
     <% end %>
     </tr>
-    <% @logged_mentors.each do |mentor| %>
+    <% @sat_logged_mentors.each do |mentor| %>
       <tr>
         <td><%= mentor %></td>
-      <% @sessions[mentor].each do |sesh| %>
+      <% @sat_sessions[mentor].each do |sesh| %>
         <td><%= sesh.student.full_name%></td>
       <% end %>
       </tr>
